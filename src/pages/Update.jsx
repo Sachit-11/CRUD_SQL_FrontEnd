@@ -28,7 +28,7 @@ const Update = () => {
       }
     }
     fetchBook();
-  }, [])
+  }, [bookId])
   
   const handleChange = (e) => {
     setBook({...book, [e.target.name]: e.target.value});
