@@ -1,0 +1,35 @@
+.form{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        font-size: 40px;
+    }
+
+    input{
+        box-sizing: border-box;
+    }
+
+    input, .formButton{
+        width: 200px;
+        height: 25px;
+        padding: 10px;
+        border: 1px solid gray;
+    }
+
+    .formButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: rgb(244, 142, 74);
+        border: none;
+    }
+}

@@ -1,0 +1,50 @@
+.booksMain{
+    height: 100vh;
+    background-color: rgb(140, 140, 235);
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    h1{
+        font-size: 60px;
+    }
+
+    .books{
+        display: flex;
+        column-gap: 40px;
+
+        .book{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            img{
+                height: 200px;
+                width: 200px;
+                background-color: green;
+            }
+            .delete, .update{
+                width: 200px;
+                cursor: pointer;
+                border: 0px;
+                border-radius: 5px;
+                padding: 5px;
+            }
+        }
+    }
+    
+    .addBook{
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 15px;
+        padding: 10px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        border: 0px;
+    }
+}
