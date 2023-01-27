@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./books.scss";
 
+
 const Books = () => {
+
+  const navigate = useNavigate();
   const [books, setBooks] = useState([]);
-  
+
   useEffect(() => {
     const fetchAllBooks = async () => {
       try{
@@ -27,32 +30,40 @@ const Books = () => {
     catch(err){
       console.log(err);
     }
-  }
+  } 
 
-  return (  
+  return (
     <div className = "booksMain">
-      <h1>SG's Book Shop</h1>
       <div className = "books">
-        {books.map((book) => {
+        {books?.map((book) => {
           return(
             <div className = "book" key = {book.id}>
-              {book.cover && <img src = {book.cover} alt = "" />}
+
+              {book.cover ? <img src = {book.cover} alt = "" /> : <img src = "https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg" alt = "" />}
+
               <h2>{book.title}</h2>
-              <p>{book.desc}</p>
+
+              <p>{book.desc ? book.desc : "No description available"}</p>
+
               <p>{book.price}</p>
+
               <button className = "delete" onClick = {() => handleDelete(book.id)}>Delete</button>
-              <Link to = {`/update/${book.id}`}>
-                <button className = "update">Update</button>
-              </Link>
+
+              <button className = "update" onClick = {() => {
+                navigate("/update", {state: book.id})}}>
+                Update
+              </button>
+
             </div>
           )
         })} 
       </div>
-      <Link to = "/add">
-        <button className = "addBook">
-          Add New Book
-        </button>
-      </Link>
+
+      <button className = "addBook" onClick = {() => {
+        navigate("/add");
+      }}>
+        Add New Book
+      </button>
     </div>
   )
 }

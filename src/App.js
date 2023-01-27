@@ -4,30 +4,47 @@ import Books from "./pages/Books";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
 import Error from "./pages/Error";
+import Navbar from "./components/Navbar";
 
 function App() {
+
+  const Layout = ({children}) => {
+    return(
+      <div className = "layout">
+        <Navbar />
+        {children}
+      </div>
+    )
+  }
 
   const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <Books />,
+      element: 
+        <Layout>
+          <Books />
+        </Layout>,
       errorElement: <Error />
     },
     {
       path: "/add",
-      element: <Add />,
+      element: 
+        <Layout>
+          <Add />
+        </Layout>,
     },
     {
-      path: "/update/:id",
-      element: <Update />
+      path: "/update",
+      element: 
+        <Layout>
+          <Update />
+        </Layout>,
     }
   ])
 
   return(
-    <div className = "app">
-      <RouterProvider router = {router} />
-    </div>
+    <RouterProvider router = {router} />
   );
 }
 

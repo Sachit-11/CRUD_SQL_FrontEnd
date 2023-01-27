@@ -1,5 +1,13 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.layout{
+    height: 100vh;
+    // display: grid;
+    // grid-template-rows: 1fr 9fr;
+    display: flex;
+    flex-direction: column;
 }
