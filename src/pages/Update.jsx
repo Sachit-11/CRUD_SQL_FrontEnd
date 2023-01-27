@@ -43,7 +43,7 @@ const Update = () => {
       errors.price = "Price is Required!";
     }
 
-    if (Object.keys(errors).length != 0){
+    if (Object.keys(errors).length !== 0){
       setFormErrors(errors);
       return false;
     }
